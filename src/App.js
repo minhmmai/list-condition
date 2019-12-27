@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import TextLength from './TextLength';
+import Validation from './Validation';
 import './App.css';
 
 class App extends Component {
   state = {
-    textLength: 0
+    text: ''
   };
 
-  textLengthHndl = event => {
-    const text = event.target.value;
+  textChangeHndl = event => {
+    const enteredText = event.target.value;
     this.setState({
-      textLength: text.length
+      text: enteredText
     });
   };
   render() {
@@ -18,8 +19,9 @@ class App extends Component {
       <div className="App">
         <h1>React practice</h1>
         <label>Enter text below</label><br/>
-        <input type='text' onChange={this.textLengthHndl} />
-        <TextLength value={this.state.textLength}/>
+        <input type='text' onChange={this.textChangeHndl} />
+        <p>The length of the entered text is: {this.state.text.length}</p>
+        {this.state.text ? <Validation enteredText={this.state.text}/> : ''}
       </div>
     );
   }
