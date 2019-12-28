@@ -20,9 +20,9 @@ class App extends Component {
   renderChars = (text) => {
     const arr = text.split('');
     this.charComponents = (
-      <div>
+      <div className='chars'>
         {arr.map((element, index) => {
-          return <Char key={index} char={element} />
+          return <Char key={index} id={index} char={element} />
         })
         }
       </div>

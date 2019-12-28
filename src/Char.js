@@ -4,7 +4,7 @@ import './Char.css';
 class Char extends Component {
     render() {
         return (
-            <div className="char">
+            <div id={this.props.id}>
                 {this.props.char}
             </div>
         )
