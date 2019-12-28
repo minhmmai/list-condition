@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Validation from './Validation';
+import Char from './Char';
 import './App.css';
 
 class App extends Component {
@@ -7,22 +8,36 @@ class App extends Component {
     text: ''
   };
 
+  charComponents = null;
+
   textChangeHndl = event => {
-    const enteredText = event.target.value;
     this.setState({
-      text: enteredText
+      text: event.target.value
     });
+    this.renderChars(event.target.value);
   };
+  
+  renderChars = (text) => {
+    const arr = text.split('');
+    this.charComponents = (
+      <div>
+        {arr.map((element, index) => {
+          return <Char key={index} char={element} />
+        })
+        }
+      </div>
+    )
+  }
+
   render() {
-    let textLength = this.state.text.length;
-    
     return (
       <div className="App">
         <h1>React practice</h1>
-        <label>Enter text below</label><br/>
+        <label>Enter text below</label><br />
         <input type='text' onChange={this.textChangeHndl} />
-        <p>The length of the entered text is: {textLength}</p>
-        <Validation value={this.state.text}/>
+        <p>The length of the entered text is: {this.state.text.length}</p>
+        <Validation value={this.state.text} />
+        {this.charComponents}
       </div>
     );
   }
