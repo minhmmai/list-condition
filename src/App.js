@@ -46,7 +46,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>React practice</h1>
+        <h2>Render user input and handle events</h2>
         <label>Enter text below</label><br />
         <input type='text' onChange={this.textChangeHndl} value={this.state.text} />
         <p>The length of the entered text is: {this.state.text.length}</p>
