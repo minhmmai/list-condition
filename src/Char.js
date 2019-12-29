@@ -4,7 +4,7 @@ import './Char.css';
 class Char extends Component {
     render() {
         return (
-            <div id={this.props.id}>
+            <div id={this.props.id} onClick={this.props.clicked}>
                 {this.props.char}
             </div>
         )
