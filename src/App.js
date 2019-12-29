@@ -22,6 +22,8 @@ class App extends Component {
     const arr = text.split('');
     this.charComponents = (
       <div className='chars'>
+        <hr/>
+        <h3>Click on the squares to delete characters</h3>(also delete characters from the input field) <br/>
         {arr.map((element, index) => {
           return <Char  id={index} key={index} char={element} clicked={this.removeChar} />
         })
@@ -46,10 +48,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h2>Render user input and handle events</h2>
+        <h1>Render user input and handle events</h1>
         <label>Enter text below</label><br />
         <input type='text' onChange={this.textChangeHndl} value={this.state.text} />
-        <p>The length of the entered text is: {this.state.text.length}</p>
+        <p>Length of the entered text is: {this.state.text.length}</p>
         <Validation value={this.state.text} />
         {this.charComponents}
       </div>
